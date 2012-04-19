@@ -8,27 +8,30 @@
 
 #import "MwfAppDelegate.h"
 #import "MwfSwitchViewController.h"
+#import "MwfDemoFirstViewController.h"
+#import "MwfDemoSecondViewController.h"
+
 @implementation MwfAppDelegate
 
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  // Override point for customization after application launch.
- 
-  MwfSwitchViewController * switchController = [[MwfSwitchViewController alloc] initWithNibName:nil bundle:nil];
-  /*
-  UIViewController * child1 = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-  child1.view.backgroundColor = [UIColor redColor];
-  UIViewController * child2 = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-  child2.view.backgroundColor = [UIColor blueColor];
-  NSArray * childs = [NSArray arrayWithObjects:child1,child2,nil];
-  switchController.viewControllers = childs;
-  */
-  self.window.rootViewController = switchController;
-  [self.window makeKeyAndVisible];
   
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+  MwfSwitchViewController * switchController = [[MwfSwitchViewController alloc] initWithNibName:nil bundle:nil];
+
+#ifndef TEST
+  MwfDemoFirstViewController * first = [[MwfDemoFirstViewController alloc] initWithNibName:@"MwfDemoFirstViewController" bundle:nil];
+  MwfDemoSecondViewController * second = [[MwfDemoSecondViewController alloc] initWithNibName:@"MwfDemoSecondViewController" bundle:nil];
+  NSArray * controllers = [NSArray arrayWithObjects:first, second, nil];
+  switchController.viewControllers = controllers;
+#endif
+  
+  self.window.rootViewController = switchController;
+  
+  [self.window makeKeyAndVisible];
   return YES;
 }
 

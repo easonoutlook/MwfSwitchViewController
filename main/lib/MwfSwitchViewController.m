@@ -116,3 +116,11 @@
 }
 
 @end
+
+#pragma mark - UIViewController (MwfSwitchViewController)
+@implementation UIViewController (MwfSwitchViewController)
+- (MwfSwitchViewController *) switchViewController;
+{
+  return (MwfSwitchViewController *) self.parentViewController;
+}
+@end

@@ -60,6 +60,7 @@ context(@"switching view controllers", ^{
                              , nil];
     controller.viewControllers = controllers;
     expect(controller.selectedIndex).toEqual(0);
+    expect(contentController1.parentViewController).toEqual(controller);
     
     [mockContentController1 verify];
     [mockDelegate verify];
@@ -78,6 +79,7 @@ context(@"switching view controllers", ^{
     
     controller.selectedIndex = 1;
     expect(controller.selectedIndex).toEqual(1);
+    expect(contentController2.parentViewController).toEqual(controller);
     
     [mockContentController1 verify];
     [mockContentController2 verify];

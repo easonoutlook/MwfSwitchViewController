@@ -19,3 +19,7 @@
 @property (nonatomic, copy) NSArray                                 * viewControllers;
 @property (nonatomic, assign) id<MwfSwitchViewControllerDelegate>     delegate;
 @end
+
+@interface UIViewController (MwfSwitchViewController)
+- (MwfSwitchViewController *) switchViewController;
+@end
