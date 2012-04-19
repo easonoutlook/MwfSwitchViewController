@@ -17,7 +17,10 @@
 		3D92AB65153FDF050030FBE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4B153FDF050030FBE3 /* UIKit.framework */; };
 		3D92AB66153FDF050030FBE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4D153FDF050030FBE3 /* Foundation.framework */; };
 		3D92AB6E153FDF050030FBE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D92AB6C153FDF050030FBE3 /* InfoPlist.strings */; };
-		3D92AB71153FDF050030FBE3 /* MwfSwitchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D92AB70153FDF050030FBE3 /* MwfSwitchViewControllerTests.m */; };
+		3D92AB88153FE4260030FBE3 /* MwfSwitchViewControllerSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D92AB87153FE4260030FBE3 /* MwfSwitchViewControllerSpecs.m */; };
+		3D92AB8B153FE98F0030FBE3 /* MwfSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D92AB8A153FE98F0030FBE3 /* MwfSwitchViewController.m */; };
+		D98B17D967354B82AA81EB98 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4B84E9D58341BE9F8FB36E /* libPods.a */; };
+		DB5416BE5E6F47B1AB418CF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4B84E9D58341BE9F8FB36E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +38,23 @@
 		3D92AB4B153FDF050030FBE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3D92AB4D153FDF050030FBE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3D92AB4F153FDF050030FBE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3D92AB53153FDF050030FBE3 /* MwfSwitchViewController-Info.plist */ = {isa = PBXFileReference; path = "MwfSwitchViewController-Info.plist"; sourceTree = "<group>"; };
+		3D92AB53153FDF050030FBE3 /* MwfSwitchViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MwfSwitchViewController-Info.plist"; sourceTree = "<group>"; };
 		3D92AB55153FDF050030FBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3D92AB57153FDF050030FBE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3D92AB59153FDF050030FBE3 /* MwfSwitchViewController-Prefix.pch */ = {isa = PBXFileReference; path = "MwfSwitchViewController-Prefix.pch"; sourceTree = "<group>"; };
-		3D92AB5A153FDF050030FBE3 /* MwfAppDelegate.h */ = {isa = PBXFileReference; path = MwfAppDelegate.h; sourceTree = "<group>"; };
+		3D92AB59153FDF050030FBE3 /* MwfSwitchViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MwfSwitchViewController-Prefix.pch"; sourceTree = "<group>"; };
+		3D92AB5A153FDF050030FBE3 /* MwfAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MwfAppDelegate.h; sourceTree = "<group>"; };
 		3D92AB5B153FDF050030FBE3 /* MwfAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MwfAppDelegate.m; sourceTree = "<group>"; };
 		3D92AB62153FDF050030FBE3 /* MwfSwitchViewControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MwfSwitchViewControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D92AB63153FDF050030FBE3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		3D92AB6B153FDF050030FBE3 /* MwfSwitchViewControllerTests-Info.plist */ = {isa = PBXFileReference; path = "MwfSwitchViewControllerTests-Info.plist"; sourceTree = "<group>"; };
+		3D92AB6B153FDF050030FBE3 /* MwfSwitchViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MwfSwitchViewControllerTests-Info.plist"; sourceTree = "<group>"; };
 		3D92AB6D153FDF050030FBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3D92AB6F153FDF050030FBE3 /* MwfSwitchViewControllerTests.h */ = {isa = PBXFileReference; path = MwfSwitchViewControllerTests.h; sourceTree = "<group>"; };
-		3D92AB70153FDF050030FBE3 /* MwfSwitchViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MwfSwitchViewControllerTests.m; sourceTree = "<group>"; };
+		3D92AB7D153FDFFA0030FBE3 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		3D92AB85153FE2760030FBE3 /* SpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecHelper.h; sourceTree = "<group>"; };
+		3D92AB87153FE4260030FBE3 /* MwfSwitchViewControllerSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwfSwitchViewControllerSpecs.m; sourceTree = "<group>"; };
+		3D92AB89153FE98F0030FBE3 /* MwfSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwfSwitchViewController.h; sourceTree = "<group>"; };
+		3D92AB8A153FE98F0030FBE3 /* MwfSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwfSwitchViewController.m; sourceTree = "<group>"; };
+		9906A65981A1469B9FA0DD0D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FA4B84E9D58341BE9F8FB36E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,7 @@
 				3D92AB4C153FDF050030FBE3 /* UIKit.framework in Frameworks */,
 				3D92AB4E153FDF050030FBE3 /* Foundation.framework in Frameworks */,
 				3D92AB50153FDF050030FBE3 /* CoreGraphics.framework in Frameworks */,
+				DB5416BE5E6F47B1AB418CF4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +76,7 @@
 				3D92AB64153FDF050030FBE3 /* SenTestingKit.framework in Frameworks */,
 				3D92AB65153FDF050030FBE3 /* UIKit.framework in Frameworks */,
 				3D92AB66153FDF050030FBE3 /* Foundation.framework in Frameworks */,
+				D98B17D967354B82AA81EB98 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,10 +86,12 @@
 		3D92AB3C153FDF050030FBE3 = {
 			isa = PBXGroup;
 			children = (
-				3D92AB51153FDF050030FBE3 /* MwfSwitchViewController */,
-				3D92AB69153FDF050030FBE3 /* MwfSwitchViewControllerTests */,
+				3D92AB7D153FDFFA0030FBE3 /* Podfile */,
+				3D92AB51153FDF050030FBE3 /* main */,
+				3D92AB69153FDF050030FBE3 /* test */,
 				3D92AB4A153FDF050030FBE3 /* Frameworks */,
 				3D92AB48153FDF050030FBE3 /* Products */,
+				9906A65981A1469B9FA0DD0D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,18 +111,20 @@
 				3D92AB4D153FDF050030FBE3 /* Foundation.framework */,
 				3D92AB4F153FDF050030FBE3 /* CoreGraphics.framework */,
 				3D92AB63153FDF050030FBE3 /* SenTestingKit.framework */,
+				FA4B84E9D58341BE9F8FB36E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3D92AB51153FDF050030FBE3 /* MwfSwitchViewController */ = {
+		3D92AB51153FDF050030FBE3 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				3D92AB7C153FDFE50030FBE3 /* lib */,
 				3D92AB5A153FDF050030FBE3 /* MwfAppDelegate.h */,
 				3D92AB5B153FDF050030FBE3 /* MwfAppDelegate.m */,
 				3D92AB52153FDF050030FBE3 /* Supporting Files */,
 			);
-			path = MwfSwitchViewController;
+			path = main;
 			sourceTree = "<group>";
 		};
 		3D92AB52153FDF050030FBE3 /* Supporting Files */ = {
@@ -124,14 +138,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3D92AB69153FDF050030FBE3 /* MwfSwitchViewControllerTests */ = {
+		3D92AB69153FDF050030FBE3 /* test */ = {
 			isa = PBXGroup;
 			children = (
-				3D92AB6F153FDF050030FBE3 /* MwfSwitchViewControllerTests.h */,
-				3D92AB70153FDF050030FBE3 /* MwfSwitchViewControllerTests.m */,
 				3D92AB6A153FDF050030FBE3 /* Supporting Files */,
+				3D92AB85153FE2760030FBE3 /* SpecHelper.h */,
+				3D92AB87153FE4260030FBE3 /* MwfSwitchViewControllerSpecs.m */,
 			);
-			path = MwfSwitchViewControllerTests;
+			path = test;
 			sourceTree = "<group>";
 		};
 		3D92AB6A153FDF050030FBE3 /* Supporting Files */ = {
@@ -141,6 +155,15 @@
 				3D92AB6C153FDF050030FBE3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D92AB7C153FDFE50030FBE3 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				3D92AB89153FE98F0030FBE3 /* MwfSwitchViewController.h */,
+				3D92AB8A153FE98F0030FBE3 /* MwfSwitchViewController.m */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +176,7 @@
 				3D92AB43153FDF050030FBE3 /* Sources */,
 				3D92AB44153FDF050030FBE3 /* Frameworks */,
 				3D92AB45153FDF050030FBE3 /* Resources */,
+				E99E0ECD3B814A0F973547DA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,6 +195,7 @@
 				3D92AB5E153FDF050030FBE3 /* Frameworks */,
 				3D92AB5F153FDF050030FBE3 /* Resources */,
 				3D92AB60153FDF050030FBE3 /* ShellScript */,
+				E99E0ECD3B814A0F973547DA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,7 +215,7 @@
 			attributes = {
 				CLASSPREFIX = Mwf;
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "–MwF";
+				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 3D92AB41153FDF050030FBE3 /* Build configuration list for PBXProject "MwfSwitchViewController" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -243,6 +268,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		E99E0ECD3B814A0F973547DA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -252,6 +291,7 @@
 			files = (
 				3D92AB58153FDF050030FBE3 /* main.m in Sources */,
 				3D92AB5C153FDF050030FBE3 /* MwfAppDelegate.m in Sources */,
+				3D92AB8B153FE98F0030FBE3 /* MwfSwitchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D92AB71153FDF050030FBE3 /* MwfSwitchViewControllerTests.m in Sources */,
+				3D92AB88153FE4260030FBE3 /* MwfSwitchViewControllerSpecs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,10 +381,13 @@
 		3D92AB75153FDF050030FBE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MwfSwitchViewController/MwfSwitchViewController-Prefix.pch";
-				INFOPLIST_FILE = "MwfSwitchViewController/MwfSwitchViewController-Info.plist";
+				GCC_PREFIX_HEADER = "main/MwfSwitchViewController-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "main/MwfSwitchViewController-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -352,26 +395,33 @@
 		3D92AB76153FDF050030FBE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MwfSwitchViewController/MwfSwitchViewController-Prefix.pch";
-				INFOPLIST_FILE = "MwfSwitchViewController/MwfSwitchViewController-Info.plist";
+				GCC_PREFIX_HEADER = "main/MwfSwitchViewController-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "main/MwfSwitchViewController-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		3D92AB78153FDF050030FBE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9906A65981A1469B9FA0DD0D /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MwfSwitchViewController.app/MwfSwitchViewController";
+				DSTROOT = /tmp/xcodeproj.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MwfSwitchViewController/MwfSwitchViewController-Prefix.pch";
-				INFOPLIST_FILE = "MwfSwitchViewControllerTests/MwfSwitchViewControllerTests-Info.plist";
+				GCC_PREFIX_HEADER = "main/MwfSwitchViewController-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "test/MwfSwitchViewControllerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -379,16 +429,20 @@
 		};
 		3D92AB79153FDF050030FBE3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9906A65981A1469B9FA0DD0D /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MwfSwitchViewController.app/MwfSwitchViewController";
+				DSTROOT = /tmp/xcodeproj.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MwfSwitchViewController/MwfSwitchViewController-Prefix.pch";
-				INFOPLIST_FILE = "MwfSwitchViewControllerTests/MwfSwitchViewControllerTests-Info.plist";
+				GCC_PREFIX_HEADER = "main/MwfSwitchViewController-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "test/MwfSwitchViewControllerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -413,6 +467,7 @@
 				3D92AB76153FDF050030FBE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D92AB77153FDF050030FBE3 /* Build configuration list for PBXNativeTarget "MwfSwitchViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +476,7 @@
 				3D92AB79153FDF050030FBE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
