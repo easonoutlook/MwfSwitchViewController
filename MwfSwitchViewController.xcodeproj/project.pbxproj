@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D92AB4C153FDF050030FBE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4B153FDF050030FBE3 /* UIKit.framework */; };
+		3D92AB4E153FDF050030FBE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4D153FDF050030FBE3 /* Foundation.framework */; };
+		3D92AB50153FDF050030FBE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4F153FDF050030FBE3 /* CoreGraphics.framework */; };
+		3D92AB56153FDF050030FBE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D92AB54153FDF050030FBE3 /* InfoPlist.strings */; };
+		3D92AB58153FDF050030FBE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D92AB57153FDF050030FBE3 /* main.m */; };
+		3D92AB5C153FDF050030FBE3 /* MwfAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D92AB5B153FDF050030FBE3 /* MwfAppDelegate.m */; };
+		3D92AB64153FDF050030FBE3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB63153FDF050030FBE3 /* SenTestingKit.framework */; };
+		3D92AB65153FDF050030FBE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4B153FDF050030FBE3 /* UIKit.framework */; };
+		3D92AB66153FDF050030FBE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4D153FDF050030FBE3 /* Foundation.framework */; };
+		3D92AB6E153FDF050030FBE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D92AB6C153FDF050030FBE3 /* InfoPlist.strings */; };
+		3D92AB71153FDF050030FBE3 /* MwfSwitchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D92AB70153FDF050030FBE3 /* MwfSwitchViewControllerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D92AB67153FDF050030FBE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D92AB3E153FDF050030FBE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D92AB46153FDF050030FBE3;
+			remoteInfo = MwfSwitchViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3D92AB47153FDF050030FBE3 /* MwfSwitchViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MwfSwitchViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D92AB4B153FDF050030FBE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3D92AB4D153FDF050030FBE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3D92AB4F153FDF050030FBE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3D92AB53153FDF050030FBE3 /* MwfSwitchViewController-Info.plist */ = {isa = PBXFileReference; path = "MwfSwitchViewController-Info.plist"; sourceTree = "<group>"; };
+		3D92AB55153FDF050030FBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3D92AB57153FDF050030FBE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3D92AB59153FDF050030FBE3 /* MwfSwitchViewController-Prefix.pch */ = {isa = PBXFileReference; path = "MwfSwitchViewController-Prefix.pch"; sourceTree = "<group>"; };
+		3D92AB5A153FDF050030FBE3 /* MwfAppDelegate.h */ = {isa = PBXFileReference; path = MwfAppDelegate.h; sourceTree = "<group>"; };
+		3D92AB5B153FDF050030FBE3 /* MwfAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MwfAppDelegate.m; sourceTree = "<group>"; };
+		3D92AB62153FDF050030FBE3 /* MwfSwitchViewControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MwfSwitchViewControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D92AB63153FDF050030FBE3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3D92AB6B153FDF050030FBE3 /* MwfSwitchViewControllerTests-Info.plist */ = {isa = PBXFileReference; path = "MwfSwitchViewControllerTests-Info.plist"; sourceTree = "<group>"; };
+		3D92AB6D153FDF050030FBE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3D92AB6F153FDF050030FBE3 /* MwfSwitchViewControllerTests.h */ = {isa = PBXFileReference; path = MwfSwitchViewControllerTests.h; sourceTree = "<group>"; };
+		3D92AB70153FDF050030FBE3 /* MwfSwitchViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MwfSwitchViewControllerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D92AB44153FDF050030FBE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D92AB4C153FDF050030FBE3 /* UIKit.framework in Frameworks */,
+				3D92AB4E153FDF050030FBE3 /* Foundation.framework in Frameworks */,
+				3D92AB50153FDF050030FBE3 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D92AB5E153FDF050030FBE3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D92AB64153FDF050030FBE3 /* SenTestingKit.framework in Frameworks */,
+				3D92AB65153FDF050030FBE3 /* UIKit.framework in Frameworks */,
+				3D92AB66153FDF050030FBE3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D92AB3C153FDF050030FBE3 = {
+			isa = PBXGroup;
+			children = (
+				3D92AB51153FDF050030FBE3 /* MwfSwitchViewController */,
+				3D92AB69153FDF050030FBE3 /* MwfSwitchViewControllerTests */,
+				3D92AB4A153FDF050030FBE3 /* Frameworks */,
+				3D92AB48153FDF050030FBE3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D92AB48153FDF050030FBE3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D92AB47153FDF050030FBE3 /* MwfSwitchViewController.app */,
+				3D92AB62153FDF050030FBE3 /* MwfSwitchViewControllerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D92AB4A153FDF050030FBE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D92AB4B153FDF050030FBE3 /* UIKit.framework */,
+				3D92AB4D153FDF050030FBE3 /* Foundation.framework */,
+				3D92AB4F153FDF050030FBE3 /* CoreGraphics.framework */,
+				3D92AB63153FDF050030FBE3 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D92AB51153FDF050030FBE3 /* MwfSwitchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D92AB5A153FDF050030FBE3 /* MwfAppDelegate.h */,
+				3D92AB5B153FDF050030FBE3 /* MwfAppDelegate.m */,
+				3D92AB52153FDF050030FBE3 /* Supporting Files */,
+			);
+			path = MwfSwitchViewController;
+			sourceTree = "<group>";
+		};
+		3D92AB52153FDF050030FBE3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D92AB53153FDF050030FBE3 /* MwfSwitchViewController-Info.plist */,
+				3D92AB54153FDF050030FBE3 /* InfoPlist.strings */,
+				3D92AB57153FDF050030FBE3 /* main.m */,
+				3D92AB59153FDF050030FBE3 /* MwfSwitchViewController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D92AB69153FDF050030FBE3 /* MwfSwitchViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D92AB6F153FDF050030FBE3 /* MwfSwitchViewControllerTests.h */,
+				3D92AB70153FDF050030FBE3 /* MwfSwitchViewControllerTests.m */,
+				3D92AB6A153FDF050030FBE3 /* Supporting Files */,
+			);
+			path = MwfSwitchViewControllerTests;
+			sourceTree = "<group>";
+		};
+		3D92AB6A153FDF050030FBE3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D92AB6B153FDF050030FBE3 /* MwfSwitchViewControllerTests-Info.plist */,
+				3D92AB6C153FDF050030FBE3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D92AB46153FDF050030FBE3 /* MwfSwitchViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D92AB74153FDF050030FBE3 /* Build configuration list for PBXNativeTarget "MwfSwitchViewController" */;
+			buildPhases = (
+				3D92AB43153FDF050030FBE3 /* Sources */,
+				3D92AB44153FDF050030FBE3 /* Frameworks */,
+				3D92AB45153FDF050030FBE3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MwfSwitchViewController;
+			productName = MwfSwitchViewController;
+			productReference = 3D92AB47153FDF050030FBE3 /* MwfSwitchViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3D92AB61153FDF050030FBE3 /* MwfSwitchViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D92AB77153FDF050030FBE3 /* Build configuration list for PBXNativeTarget "MwfSwitchViewControllerTests" */;
+			buildPhases = (
+				3D92AB5D153FDF050030FBE3 /* Sources */,
+				3D92AB5E153FDF050030FBE3 /* Frameworks */,
+				3D92AB5F153FDF050030FBE3 /* Resources */,
+				3D92AB60153FDF050030FBE3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D92AB68153FDF050030FBE3 /* PBXTargetDependency */,
+			);
+			name = MwfSwitchViewControllerTests;
+			productName = MwfSwitchViewControllerTests;
+			productReference = 3D92AB62153FDF050030FBE3 /* MwfSwitchViewControllerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D92AB3E153FDF050030FBE3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Mwf;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "–MwF";
+			};
+			buildConfigurationList = 3D92AB41153FDF050030FBE3 /* Build configuration list for PBXProject "MwfSwitchViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3D92AB3C153FDF050030FBE3;
+			productRefGroup = 3D92AB48153FDF050030FBE3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D92AB46153FDF050030FBE3 /* MwfSwitchViewController */,
+				3D92AB61153FDF050030FBE3 /* MwfSwitchViewControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D92AB45153FDF050030FBE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D92AB56153FDF050030FBE3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D92AB5F153FDF050030FBE3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D92AB6E153FDF050030FBE3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D92AB60153FDF050030FBE3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D92AB43153FDF050030FBE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D92AB58153FDF050030FBE3 /* main.m in Sources */,
+				3D92AB5C153FDF050030FBE3 /* MwfAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D92AB5D153FDF050030FBE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D92AB71153FDF050030FBE3 /* MwfSwitchViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D92AB68153FDF050030FBE3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D92AB46153FDF050030FBE3 /* MwfSwitchViewController */;
+			targetProxy = 3D92AB67153FDF050030FBE3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3D92AB54153FDF050030FBE3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D92AB55153FDF050030FBE3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3D92AB6C153FDF050030FBE3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D92AB6D153FDF050030FBE3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D92AB72153FDF050030FBE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3D92AB73153FDF050030FBE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D92AB75153FDF050030FBE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MwfSwitchViewController/MwfSwitchViewController-Prefix.pch";
+				INFOPLIST_FILE = "MwfSwitchViewController/MwfSwitchViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3D92AB76153FDF050030FBE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MwfSwitchViewController/MwfSwitchViewController-Prefix.pch";
+				INFOPLIST_FILE = "MwfSwitchViewController/MwfSwitchViewController-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3D92AB78153FDF050030FBE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MwfSwitchViewController.app/MwfSwitchViewController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MwfSwitchViewController/MwfSwitchViewController-Prefix.pch";
+				INFOPLIST_FILE = "MwfSwitchViewControllerTests/MwfSwitchViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3D92AB79153FDF050030FBE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MwfSwitchViewController.app/MwfSwitchViewController";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MwfSwitchViewController/MwfSwitchViewController-Prefix.pch";
+				INFOPLIST_FILE = "MwfSwitchViewControllerTests/MwfSwitchViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D92AB41153FDF050030FBE3 /* Build configuration list for PBXProject "MwfSwitchViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D92AB72153FDF050030FBE3 /* Debug */,
+				3D92AB73153FDF050030FBE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D92AB74153FDF050030FBE3 /* Build configuration list for PBXNativeTarget "MwfSwitchViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D92AB75153FDF050030FBE3 /* Debug */,
+				3D92AB76153FDF050030FBE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3D92AB77153FDF050030FBE3 /* Build configuration list for PBXNativeTarget "MwfSwitchViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D92AB78153FDF050030FBE3 /* Debug */,
+				3D92AB79153FDF050030FBE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D92AB3E153FDF050030FBE3 /* Project object */;
+}
