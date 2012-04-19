@@ -23,6 +23,7 @@
 		3D92ABA5154053110030FBE3 /* MwfDemoFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D92ABA3154053110030FBE3 /* MwfDemoFirstViewController.xib */; };
 		3D92ABA9154054910030FBE3 /* MwfDemoSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D92ABA7154054900030FBE3 /* MwfDemoSecondViewController.m */; };
 		3D92ABAA154054910030FBE3 /* MwfDemoSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D92ABA8154054900030FBE3 /* MwfDemoSecondViewController.xib */; };
+		3D92ABAC1540576C0030FBE3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D92ABAB1540576C0030FBE3 /* README.md */; };
 		D98B17D967354B82AA81EB98 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4B84E9D58341BE9F8FB36E /* libPods.a */; };
 		DB5416BE5E6F47B1AB418CF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4B84E9D58341BE9F8FB36E /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		3D92ABA6154054900030FBE3 /* MwfDemoSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwfDemoSecondViewController.h; sourceTree = "<group>"; };
 		3D92ABA7154054900030FBE3 /* MwfDemoSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwfDemoSecondViewController.m; sourceTree = "<group>"; };
 		3D92ABA8154054900030FBE3 /* MwfDemoSecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MwfDemoSecondViewController.xib; sourceTree = "<group>"; };
+		3D92ABAB1540576C0030FBE3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		9906A65981A1469B9FA0DD0D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		FA4B84E9D58341BE9F8FB36E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 		3D92AB3C153FDF050030FBE3 = {
 			isa = PBXGroup;
 			children = (
+				3D92ABAB1540576C0030FBE3 /* README.md */,
 				3D92AB7D153FDFFA0030FBE3 /* Podfile */,
 				3D92AB51153FDF050030FBE3 /* main */,
 				3D92AB69153FDF050030FBE3 /* test */,
@@ -259,6 +262,7 @@
 				3D92AB56153FDF050030FBE3 /* InfoPlist.strings in Resources */,
 				3D92ABA5154053110030FBE3 /* MwfDemoFirstViewController.xib in Resources */,
 				3D92ABAA154054910030FBE3 /* MwfDemoSecondViewController.xib in Resources */,
+				3D92ABAC1540576C0030FBE3 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
