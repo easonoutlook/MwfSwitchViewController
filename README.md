@@ -2,6 +2,10 @@
 
 A simple container view controller that is capable to host multiple view controllers and switching between them by setting the `selectedIndex`.
 
+## Features
+* Deadly simple to use
+* Toolbar support
+
 ## How To Use
 
 * Creating the view controller
@@ -16,5 +20,17 @@ A simple container view controller that is capable to host multiple view control
 
   ```objective-c
   switchController.selectedIndex = theIndex;
+  ```
+  
+* Setting toolbar items
+
+  ```objective-c
+  switchController.toolbarItems = theArrayWithToolbarItems;
+  ```
+
+* Show/Hide toolbar
+
+  ```objective-c
+  [switchController setToolbarHidden:showOrHide animated:withOrWithoutAnimation];
   ```
   
