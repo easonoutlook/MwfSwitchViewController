@@ -27,6 +27,11 @@
   MwfDemoSecondViewController * second = [[MwfDemoSecondViewController alloc] initWithNibName:@"MwfDemoSecondViewController" bundle:nil];
   NSArray * controllers = [NSArray arrayWithObjects:first, second, nil];
   switchController.viewControllers = controllers;
+  UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:nil action:nil];
+  UIBarButtonItem * item2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:nil action:nil];
+  NSArray * toolbarItems = [NSArray arrayWithObjects:item1,item2,nil];
+  switchController.toolbarItems = toolbarItems;
+  switchController.delegate = self;  
 #endif
   
   self.window.rootViewController = switchController;
@@ -61,5 +66,12 @@
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+- (void) switchViewController:(MwfSwitchViewController *)controller didSwitchToViewController:(UIViewController *)viewController
+{
+  if ([viewController isKindOfClass:[MwfDemoFirstViewController class]]) {
+    [viewController.switchViewController setToolbarHidden:YES animated:YES];
+  } else {
+    [viewController.switchViewController setToolbarHidden:NO animated:YES];
+  }
+}
 @end

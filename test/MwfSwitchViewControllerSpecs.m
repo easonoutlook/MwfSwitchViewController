@@ -13,6 +13,7 @@ __block id mockDelegate = nil;
 beforeAll(^{
 
   controller = (MwfSwitchViewController *) [UIApplication sharedApplication].keyWindow.rootViewController;
+  // controller = [[MwfSwitchViewController alloc] initWithNibName:nil bundle:nil];
 
   mockController = [OCMockObject partialMockForObject:controller];
   mockDelegate = [OCMockObject mockForProtocol:@protocol(MwfSwitchViewControllerDelegate)];
@@ -37,13 +38,29 @@ it(@"tests init and bindings", ^{
   expect(controller.viewControllers).toBeNil();
   expect(controller.selectedIndex).toEqual(NSNotFound);
   expect(controller.view).Not.toBeNil();
+  expect(controller.toolbar).Not.toBeNil();
+  expect(controller.contentView).Not.toBeNil();
   
 });
-
+/*
 it(@"tests view reloading", ^{
 
+  expect(controller.view).Not.toBeNil();
+  expect(controller.toolbar).Not.toBeNil();
+  expect(controller.contentView).Not.toBeNil();
+  
+  [[mockController expect] viewDidUnload];
+  [controller didReceiveMemoryWarning];
+  expect(controller.toolbar).toBeNil();
+  expect(controller.contentView).toBeNil();
+  [mockController verify];
+  
+  expect(controller.view).Not.toBeNil();
+  expect(controller.toolbar).Not.toBeNil();
+  expect(controller.contentView).Not.toBeNil();
+         
 });
-
+*/
 context(@"switching view controllers", ^{
 
   it(@"tests assigning controllers", ^{
@@ -61,6 +78,7 @@ context(@"switching view controllers", ^{
     controller.viewControllers = controllers;
     expect(controller.selectedIndex).toEqual(0);
     expect(contentController1.parentViewController).toEqual(controller);
+    expect(contentController1.switchViewController).toEqual(controller);
     
     [mockContentController1 verify];
     [mockDelegate verify];
@@ -80,17 +98,17 @@ context(@"switching view controllers", ^{
     controller.selectedIndex = 1;
     expect(controller.selectedIndex).toEqual(1);
     expect(contentController2.parentViewController).toEqual(controller);
+    expect(contentController2.switchViewController).toEqual(controller);
     
     [mockContentController1 verify];
     [mockContentController2 verify];
     [mockDelegate verify];
-    
   });
+  
   it(@"tests assign to invalid index", ^{
     // invalid index
     controller.selectedIndex = 2;
     expect(controller.selectedIndex).toEqual(1);
-    
   });
   
   it(@"tests reassigning controllers", ^{

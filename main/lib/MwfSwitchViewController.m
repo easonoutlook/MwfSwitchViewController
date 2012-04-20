@@ -8,6 +8,97 @@
 
 #import "MwfSwitchViewController.h"
 
+#define kAnimationDuration 0.3
+#pragma mark - Content View
+@interface MwfSwitchContentView : UIView {
+  __weak UIView * _contentView;
+  UIView        * _contentContainerView;
+  UIToolbar     * _toolbar;
+  BOOL            _toolbarHidden;
+}
+@property (nonatomic, readonly) UIToolbar * toolbar;
+@property (nonatomic, readonly) UIView    * contentContainerView;
+@property (nonatomic)           BOOL        toolbarHidden;
+- (void) setContentView:(UIView *)view;
+- (void) setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;
+@end
+
+@implementation MwfSwitchContentView
+@synthesize toolbar = _toolbar;
+@synthesize toolbarHidden = _toolbarHidden;
+@synthesize contentContainerView = _contenContainerView;
+
+- (id) initWithFrame:(CGRect)frame; 
+{
+  self = [super initWithFrame:frame];
+  if (self) {
+    // init the containerView
+    _contentContainerView = [[UIView alloc] initWithFrame:self.bounds];
+    [self addSubview:_contentContainerView];
+    
+    // init the toolbar
+    _toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
+    [_toolbar sizeToFit];
+    _toolbarHidden = YES;
+    [self addSubview:_toolbar];
+    [self setNeedsLayout];
+  }
+  return self;
+}
+
+- (void) layoutSubviews; 
+{
+  [super layoutSubviews];
+  
+  // place the toolbar
+  CGFloat tY = self.bounds.size.height;
+  if (!_toolbarHidden) {
+    tY = tY - (_toolbar.bounds.size.height);
+  }
+  CGRect sF = self.bounds;
+  CGRect tF = _toolbar.frame;
+  _toolbar.frame = CGRectMake(tF.origin.x, tY, sF.size.width, tF.size.height);
+  
+  // place the contentView
+  _contentContainerView.frame = CGRectMake(sF.origin.x, sF.origin.y, sF.size.width, tY);
+  
+}
+
+// Content
+- (void) setContentView:(UIView *)view;
+{
+  UIView * previousContentView = _contentView;
+  _contentView = view;
+  
+  _contentView.frame = _contentContainerView.bounds;
+  _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+  
+  [_contentContainerView addSubview:_contentView];
+  [previousContentView removeFromSuperview];
+}
+
+// Toolbar Animations
+- (void) setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;
+{
+  if (hidden != _toolbarHidden) {
+    if (animated) {
+      [UIView animateWithDuration:kAnimationDuration animations:^{
+        _toolbarHidden = hidden;
+        [self layoutSubviews];
+      }];
+    } else {
+      _toolbarHidden = hidden;
+      [self setNeedsLayout];
+    }
+  }
+}
+- (void) setToolbarHidden:(BOOL)toolbarHidden;
+{
+  [self setToolbarHidden:toolbarHidden animated:NO];
+}
+@end
+
+#pragma mark - MwfSwitchViewController
 @interface MwfSwitchViewController ()
 - (void) didSwitchToViewController:(UIViewController *)controller;
 - (void) switchFrom:(UIViewController *)from to:(UIViewController *)to;
@@ -18,6 +109,7 @@
 @synthesize selectedViewController = _selectedViewController;
 @synthesize viewControllers = _viewControllers;
 @synthesize delegate = _delegate;
+@synthesize contentView = _contentView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,16 +121,29 @@
     return self;
 }
 
+- (void)loadView {
+  [super loadView];
+  
+  // create content view
+  _contentView = [[MwfSwitchContentView alloc] initWithFrame:self.view.bounds];
+  _contentView.backgroundColor = [UIColor whiteColor];
+  [self.view addSubview:_contentView];
+  
+}
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  
 	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
+
+  _contentView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -67,13 +172,12 @@
     [self addChildViewController:to];
     [to didMoveToParentViewController:self];
     
-    [self.view addSubview:to.view];
+    [_contentView setContentView:to.view];
     [to viewDidAppear:NO];
   }
   
   if (from) {
     [from removeFromParentViewController];
-    [from.view removeFromSuperview];
     [from viewDidDisappear:NO];
   }
   
@@ -115,6 +219,20 @@
   [self switchFrom:currentViewController to:newViewController];
 }
 
+#pragma mark - Show/Hide Toolbar
+- (UIToolbar *) toolbar;
+{
+  return _contentView.toolbar;
+}
+- (void) setToolbarItems:(NSArray *)toolbarItems animated:(BOOL)animated;
+{
+  [super setToolbarItems:toolbarItems animated:animated];
+  [_contentView.toolbar setItems:toolbarItems animated:(animated&&(!_contentView.toolbarHidden))];
+}
+- (void) setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;
+{
+  [_contentView setToolbarHidden:hidden animated:animated];
+}
 @end
 
 #pragma mark - UIViewController (MwfSwitchViewController)
@@ -123,4 +241,5 @@
 {
   return (MwfSwitchViewController *) self.parentViewController;
 }
+
 @end

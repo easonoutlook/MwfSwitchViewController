@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MwfAppDelegate : UIResponder <UIApplicationDelegate>
+#import "MwfSwitchViewController.h"
+@interface MwfAppDelegate : UIResponder <UIApplicationDelegate,MwfSwitchViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
