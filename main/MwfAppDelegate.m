@@ -27,11 +27,12 @@
   MwfDemoSecondViewController * second = [[MwfDemoSecondViewController alloc] initWithNibName:@"MwfDemoSecondViewController" bundle:nil];
   NSArray * controllers = [NSArray arrayWithObjects:first, second, nil];
   switchController.viewControllers = controllers;
-  UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:nil action:nil];
+  UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(toggleOverlay:)];
   UIBarButtonItem * item2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:nil action:nil];
   NSArray * toolbarItems = [NSArray arrayWithObjects:item1,item2,nil];
   switchController.toolbarItems = toolbarItems;
   switchController.delegate = self;  
+  _switchViewController = switchController;
 #endif
   
   self.window.rootViewController = switchController;
@@ -73,5 +74,9 @@
   } else {
     [viewController.switchViewController setToolbarHidden:NO animated:YES];
   }
+}
+- (void) toggleOverlay:(id)sender;
+{
+  [_switchViewController setOverlayHidden:!_switchViewController.overlayHidden animated:YES];
 }
 @end

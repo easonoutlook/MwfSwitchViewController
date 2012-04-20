@@ -40,6 +40,7 @@ it(@"tests init and bindings", ^{
   expect(controller.view).Not.toBeNil();
   expect(controller.toolbar).Not.toBeNil();
   expect(controller.contentView).Not.toBeNil();
+  expect(controller.overlayHidden).toEqual(YES);
   
 });
 /*
@@ -137,7 +138,12 @@ context(@"switching view controllers", ^{
 
     [mockDelegate verify];
   });
+  it(@"tests overlay feature.", ^{
   
+    [controller setOverlayHidden:NO animated:NO];
+    expect(controller.overlayHidden).toEqual(NO);
+    
+  });
 });
 
 SpecEnd

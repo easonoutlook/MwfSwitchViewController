@@ -15,18 +15,22 @@
   UIView        * _contentContainerView;
   UIToolbar     * _toolbar;
   BOOL            _toolbarHidden;
+  UIView        * _overlayView;
 }
 @property (nonatomic, readonly) UIToolbar * toolbar;
+@property (nonatomic, readonly) UIView    * overlayView;
 @property (nonatomic, readonly) UIView    * contentContainerView;
 @property (nonatomic)           BOOL        toolbarHidden;
 - (void) setContentView:(UIView *)view;
 - (void) setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void) setOverlayHidden:(BOOL)hidden animated:(BOOL)animated;
 @end
 
 @implementation MwfSwitchContentView
 @synthesize toolbar = _toolbar;
 @synthesize toolbarHidden = _toolbarHidden;
-@synthesize contentContainerView = _contenContainerView;
+@synthesize contentContainerView = _contentContainerView;
+@synthesize overlayView = _overlayView;
 
 - (id) initWithFrame:(CGRect)frame; 
 {
@@ -35,6 +39,15 @@
     // init the containerView
     _contentContainerView = [[UIView alloc] initWithFrame:self.bounds];
     [self addSubview:_contentContainerView];
+    
+    // init the overlayView
+    _overlayView = [[UIView alloc] initWithFrame:_contentContainerView.bounds];
+    _overlayView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+    _overlayView.hidden = YES;
+    _overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    UITapGestureRecognizer * tapRecon = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissOverlayView:)];
+    [_overlayView addGestureRecognizer:tapRecon];
+    [_contentContainerView addSubview:_overlayView];
     
     // init the toolbar
     _toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
@@ -73,7 +86,7 @@
   _contentView.frame = _contentContainerView.bounds;
   _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
   
-  [_contentContainerView addSubview:_contentView];
+  [_contentContainerView insertSubview:_contentView atIndex:0];
   [previousContentView removeFromSuperview];
 }
 
@@ -95,6 +108,35 @@
 - (void) setToolbarHidden:(BOOL)toolbarHidden;
 {
   [self setToolbarHidden:toolbarHidden animated:NO];
+}
+- (void) setOverlayHidden:(BOOL)hidden animated:(BOOL)animated;
+{
+  if (hidden != _overlayView.hidden) {
+
+    CGFloat alpha = hidden?0:0.3;
+    UIColor * color = [UIColor colorWithRed:0 green:0 blue:0 alpha:alpha];
+    
+    if (animated) {
+      if (!hidden) _overlayView.hidden = NO;
+      [UIView animateWithDuration:kAnimationDuration 
+                       animations:^{
+                         _overlayView.backgroundColor = color;
+                       } 
+                       completion:^(BOOL f) {
+                         if (f) {
+                           if (hidden) _overlayView.hidden = YES;
+                         }
+                       }];
+    } else {
+      _overlayView.backgroundColor = color;
+      _overlayView.hidden = hidden;
+    }
+  }
+}
+// Tap Gesture Recon callback
+- (void) dismissOverlayView:(UITapGestureRecognizer *)recon;
+{
+  [self setOverlayHidden:YES animated:YES];
 }
 @end
 
@@ -232,6 +274,20 @@
 - (void) setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;
 {
   [_contentView setToolbarHidden:hidden animated:animated];
+}
+
+#pragma mark - Show/Hide Overlay
+- (void) setOverlayHidden:(BOOL)hidden animated:(BOOL)animated;
+{
+  [_contentView setOverlayHidden:hidden animated:animated];
+}
+- (void) setOverlayHidden:(BOOL)overlayHidden;
+{
+  [_contentView setOverlayHidden:overlayHidden animated:NO];
+}
+- (BOOL) overlayHidden;
+{
+  return _contentView.overlayView.hidden;
 }
 @end
 

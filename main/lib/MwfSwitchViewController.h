@@ -23,7 +23,9 @@
 @property (nonatomic, assign) id<MwfSwitchViewControllerDelegate>     delegate;
 @property (nonatomic, readonly) __strong UIView                     * contentView;
 @property (nonatomic, readonly) UIToolbar                           * toolbar;
+@property (nonatomic)           BOOL                                  overlayHidden;
 - (void) setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void) setOverlayHidden:(BOOL)hidden animated:(BOOL)animated;
 @end
 
 @interface UIViewController (MwfSwitchViewController)

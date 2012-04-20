@@ -5,6 +5,7 @@ A simple container view controller that is capable to host multiple view control
 ## Features
 * Deadly simple to use
 * Toolbar support
+* Overlay support
 
 ## How To Use
 
@@ -28,9 +29,14 @@ A simple container view controller that is capable to host multiple view control
   switchController.toolbarItems = theArrayWithToolbarItems;
   ```
 
-* Show/Hide toolbar
+* Show/Hide Toolbar
 
   ```objective-c
   [switchController setToolbarHidden:showOrHide animated:withOrWithoutAnimation];
   ```
   
+* Show/Hide Overlay  
+
+  ```objective-c
+  [switchController setOverlayHidden:showOrHide animated:withOrWithoutAnimation];
+  ```
