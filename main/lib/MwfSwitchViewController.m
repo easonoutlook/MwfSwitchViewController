@@ -173,7 +173,7 @@
     endFrame = CGRectMake(0,b.size.height,b.size.width,h);
   }
   
-  __weak MwfSwitchContentView * weakSelf = self;
+  __block MwfSwitchContentView * weakSelf = self;
   if (animated) {
     [UIView animateWithDuration:kAnimationDuration 
                      animations:^{
@@ -409,8 +409,8 @@
   if (_menuViewController && hidden != [self menuHidden]) {
     
     CGFloat h = 0;
-    __weak UIViewController * mctl = _menuViewController;
-    __weak MwfSwitchViewController * weakSelf = self;
+    __block UIViewController * mctl = _menuViewController;
+    __block MwfSwitchViewController * weakSelf = self;
     if (!hidden) {
       BOOL deferred = NO;
       
