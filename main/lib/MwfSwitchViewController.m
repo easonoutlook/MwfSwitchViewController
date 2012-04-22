@@ -16,14 +16,17 @@
   UIToolbar     * _toolbar;
   BOOL            _toolbarHidden;
   UIView        * _overlayView;
+  UIView        * _menuView;
 }
 @property (nonatomic, readonly) UIToolbar * toolbar;
 @property (nonatomic, readonly) UIView    * overlayView;
 @property (nonatomic, readonly) UIView    * contentContainerView;
 @property (nonatomic)           BOOL        toolbarHidden;
+@property (nonatomic, retain)   UIView    * menuView;
 - (void) setContentView:(UIView *)view;
 - (void) setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;
 - (void) setOverlayHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void) setMenuHidden:(BOOL)hidden height:(CGFloat)height animated:(BOOL)animated completion:(void(^)(void))compleation;
 @end
 
 @implementation MwfSwitchContentView
@@ -31,6 +34,7 @@
 @synthesize toolbarHidden = _toolbarHidden;
 @synthesize contentContainerView = _contentContainerView;
 @synthesize overlayView = _overlayView;
+@synthesize menuView = _menuView;
 
 - (id) initWithFrame:(CGRect)frame; 
 {
@@ -45,7 +49,7 @@
     _overlayView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     _overlayView.hidden = YES;
     _overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    UITapGestureRecognizer * tapRecon = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissOverlayView:)];
+    UITapGestureRecognizer * tapRecon = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMenuOrOverlayView:)];
     [_overlayView addGestureRecognizer:tapRecon];
     [_contentContainerView addSubview:_overlayView];
     
@@ -134,16 +138,72 @@
   }
 }
 // Tap Gesture Recon callback
-- (void) dismissOverlayView:(UITapGestureRecognizer *)recon;
+- (void) dismissMenuOrOverlayView:(UITapGestureRecognizer *)recon;
 {
-  [self setOverlayHidden:YES animated:YES];
+  if (!self.menuView.hidden) {
+    [self setMenuHidden:YES height:0 animated:YES completion:NULL];
+  } else {
+    [self setOverlayHidden:YES animated:YES];
+  }
+}
+
+// Menu
+- (void) setMenuView:(UIView *)menuView;
+{
+  [_menuView removeFromSuperview];
+  _menuView = menuView;
+  _menuView.hidden = YES;
+  [_contentContainerView addSubview:_menuView];
+}
+- (void) setMenuHidden:(BOOL)hidden height:(CGFloat)height animated:(BOOL)animated completion:(void(^)(void))completion;
+{
+  CGRect b = _contentContainerView.bounds;
+  CGFloat h = height;
+  CGRect endFrame;
+  
+  if (!hidden) {
+    // height max allowed is 320-(20+33)=267
+    if (h > 267) h = 267;
+    if (h == 0) h = 176; // default to 176
+    _menuView.frame = CGRectMake(0, b.size.height, b.size.width, h);
+    _menuView.hidden = NO;
+    endFrame = CGRectMake(0, b.size.height-h, b.size.width, h);
+  } else {
+    h = _menuView.bounds.size.height;
+    endFrame = CGRectMake(0,b.size.height,b.size.width,h);
+  }
+  
+  __weak MwfSwitchContentView * weakSelf = self;
+  if (animated) {
+    [UIView animateWithDuration:kAnimationDuration 
+                     animations:^{
+                       [weakSelf setOverlayHidden:hidden animated:NO];
+                       _menuView.frame = endFrame;
+                     } 
+                     completion:^(BOOL f){
+                       _menuView.hidden = hidden;
+                       if (f && completion != NULL) {
+                         completion();
+                       }
+                     }];
+  } else {
+    [weakSelf setOverlayHidden:hidden animated:NO];
+    _menuView.frame = endFrame;
+    _menuView.hidden = hidden;
+    completion();
+  }
 }
 @end
 
 #pragma mark - MwfSwitchViewController
 @interface MwfSwitchViewController ()
-- (void) didSwitchToViewController:(UIViewController *)controller;
 - (void) switchFrom:(UIViewController *)from to:(UIViewController *)to;
+- (void) didSwitchToViewController:(UIViewController *)controller;
+- (void) willShowMenuViewController:(UIViewController *)menuViewController;
+- (void) didShowMenuViewController:(UIViewController *)menuViewController;
+- (CGFloat) heightForMenuViewController:(UIViewController *)menuViewController;
+- (void) willHideMenuViewController:(UIViewController *)menuViewController;
+- (void) didHideMenuViewController:(UIViewController *)menuViewController;
 @end
 
 @implementation MwfSwitchViewController
@@ -152,6 +212,7 @@
 @synthesize viewControllers = _viewControllers;
 @synthesize delegate = _delegate;
 @synthesize contentView = _contentView;
+@synthesize menuViewController = _menuViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -227,7 +288,38 @@
     [self didSwitchToViewController:to];
   }
 }
-
+- (void) willShowMenuViewController:(UIViewController *)menuViewController;
+{
+  if (_delegate && [(id)_delegate respondsToSelector:@selector(switchViewController:willShowMenuViewController:)]) {
+    [_delegate switchViewController:self willShowMenuViewController:menuViewController];
+  }
+}
+- (void) didShowMenuViewController:(UIViewController *)menuViewController;
+{
+  if (_delegate && [(id)_delegate respondsToSelector:@selector(switchViewController:didShowMenuViewController:)]) {
+    [_delegate switchViewController:self didShowMenuViewController:menuViewController];
+  }
+}
+- (CGFloat) heightForMenuViewController:(UIViewController *)menuViewController;
+{
+  CGFloat h = 0;
+  if (_delegate && [(id)_delegate respondsToSelector:@selector(switchViewController:heightForMenuViewController:)]) {
+    h = [_delegate switchViewController:self heightForMenuViewController:menuViewController];
+  }
+  return h;
+}
+- (void) willHideMenuViewController:(UIViewController *)menuViewController;
+{
+  if (_delegate && [(id)_delegate respondsToSelector:@selector(switchViewController:willHideMenuViewController:)]) {
+    [_delegate switchViewController:self willHideMenuViewController:menuViewController];
+  }
+}
+- (void) didHideMenuViewController:(UIViewController *)menuViewController;
+{
+  if (_delegate && [(id)_delegate respondsToSelector:@selector(switchViewController:didHideMenuViewController:)]) {
+    [_delegate switchViewController:self didHideMenuViewController:menuViewController];
+  }
+}
 #pragma mark - Public Methods
 - (void) setSelectedIndex:(NSUInteger)selectedIndex
 {
@@ -289,6 +381,74 @@
 {
   return _contentView.overlayView.hidden;
 }
+#pragma mark - Show/Hide Menu
+- (void) setMenuViewController:(UIViewController *)menuViewController;
+{
+  if ([self menuHidden]) {
+    if (_menuViewController) {
+      [_menuViewController willMoveToParentViewController:nil];
+      _contentView.menuView = nil;
+      [_menuViewController removeFromParentViewController];
+    }
+    _menuViewController = menuViewController;
+    if (_menuViewController) {
+      [self addChildViewController:_menuViewController];
+      // _contentView.menuView = _menuViewController.view;
+      // [_menuViewController didMoveToParentViewController:self];
+    }
+  } else {
+    [NSException raise:@"Invalid State" format:@"Menu is showing, setting value is disallowed."];
+  }
+}
+- (BOOL) menuHidden;
+{
+  return !_menuViewController || !_contentView.menuView || _contentView.menuView.hidden;
+}
+- (void) setMenuHidden:(BOOL)hidden animated:(BOOL)animated;
+{
+  if (_menuViewController && hidden != [self menuHidden]) {
+    
+    CGFloat h = 0;
+    __weak UIViewController * mctl = _menuViewController;
+    __weak MwfSwitchViewController * weakSelf = self;
+    if (!hidden) {
+      BOOL deferred = NO;
+      
+      // deferred setting of menu view
+      if (!_contentView.menuView) {
+        deferred = YES;
+        _contentView.menuView = mctl.view;
+        [mctl didMoveToParentViewController:self];
+      }
+      
+      [self willShowMenuViewController:mctl];
+      h =[self heightForMenuViewController:mctl];
+
+      if (!deferred) {
+        [mctl viewWillAppear:animated];
+      }
+
+    } else {
+
+      [self willHideMenuViewController:mctl];
+    
+      [mctl viewWillDisappear:animated];
+    }
+    [_contentView setMenuHidden:hidden 
+                         height:h 
+                       animated:animated 
+                     completion:^{
+                       if (!hidden) {
+                         [mctl viewDidAppear:animated];
+                         [weakSelf didShowMenuViewController:mctl];
+                       } else {
+                         [mctl viewDidDisappear:animated];
+                         [weakSelf didHideMenuViewController:mctl];
+                       }
+                     }];
+    
+  }
+}
 @end
 
 #pragma mark - UIViewController (MwfSwitchViewController)
@@ -297,5 +457,6 @@
 {
   return (MwfSwitchViewController *) self.parentViewController;
 }
-
 @end
+
+

@@ -10,6 +10,7 @@
 #import "MwfSwitchViewController.h"
 #import "MwfDemoFirstViewController.h"
 #import "MwfDemoSecondViewController.h"
+#import "MwfMenuViewController.h"
 
 @implementation MwfAppDelegate
 
@@ -33,6 +34,10 @@
   switchController.toolbarItems = toolbarItems;
   switchController.delegate = self;  
   _switchViewController = switchController;
+  
+  MwfMenuViewController * menuViewController = [[MwfMenuViewController alloc] initWithNibName:nil bundle:nil];
+  switchController.menuViewController = menuViewController;
+  
 #endif
   
   self.window.rootViewController = switchController;
@@ -67,7 +72,8 @@
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-- (void) switchViewController:(MwfSwitchViewController *)controller didSwitchToViewController:(UIViewController *)viewController
+- (void) switchViewController:(MwfSwitchViewController *)controller 
+    didSwitchToViewController:(UIViewController *)viewController
 {
   if ([viewController isKindOfClass:[MwfDemoFirstViewController class]]) {
     [viewController.switchViewController setToolbarHidden:YES animated:YES];
@@ -77,6 +83,11 @@
 }
 - (void) toggleOverlay:(id)sender;
 {
-  [_switchViewController setOverlayHidden:!_switchViewController.overlayHidden animated:YES];
+  // [_switchViewController setOverlayHidden:!_switchViewController.overlayHidden animated:YES];
+  [_switchViewController setMenuHidden:NO animated:YES];
+}
+- (CGFloat) switchViewController:(MwfSwitchViewController *)controller heightForMenuViewController:(UIViewController *)menuViewController;
+{
+  return 176;
 }
 @end

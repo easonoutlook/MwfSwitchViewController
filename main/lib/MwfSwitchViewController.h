@@ -10,7 +10,13 @@
 
 @class MwfSwitchViewController;
 @protocol MwfSwitchViewControllerDelegate
+@optional
 - (void)switchViewController:(MwfSwitchViewController *)controller didSwitchToViewController:(UIViewController *)viewController;
+- (void)switchViewController:(MwfSwitchViewController *)controller willShowMenuViewController:(UIViewController *)menuViewController;
+- (void)switchViewController:(MwfSwitchViewController *)controller didShowMenuViewController:(UIViewController *)menuViewController;
+- (void)switchViewController:(MwfSwitchViewController *)controller willHideMenuViewController:(UIViewController *)menuViewController;
+- (void)switchViewController:(MwfSwitchViewController *)controller didHideMenuViewController:(UIViewController *)menuViewController;
+- (CGFloat) switchViewController:(MwfSwitchViewController *)controller heightForMenuViewController:(UIViewController *)menuViewController;
 @end
 
 @class MwfSwitchContentView;
@@ -24,8 +30,11 @@
 @property (nonatomic, readonly) __strong UIView                     * contentView;
 @property (nonatomic, readonly) UIToolbar                           * toolbar;
 @property (nonatomic)           BOOL                                  overlayHidden;
+@property (nonatomic, readonly) BOOL                                  menuHidden;
+@property (nonatomic, strong) UIViewController                      * menuViewController;
 - (void) setToolbarHidden:(BOOL)hidden animated:(BOOL)animated;
 - (void) setOverlayHidden:(BOOL)hidden animated:(BOOL)animated;
+- (void) setMenuHidden:(BOOL)hidden animated:(BOOL)animated;
 @end
 
 @interface UIViewController (MwfSwitchViewController)

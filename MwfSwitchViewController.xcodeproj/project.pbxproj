@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D2B38091543BCF7000E5D9B /* MwfMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2B38071543BCF7000E5D9B /* MwfMenuViewController.m */; };
+		3D2B380A1543BCF7000E5D9B /* MwfMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2B38081543BCF7000E5D9B /* MwfMenuViewController.xib */; };
 		3D92AB4C153FDF050030FBE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4B153FDF050030FBE3 /* UIKit.framework */; };
 		3D92AB4E153FDF050030FBE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4D153FDF050030FBE3 /* Foundation.framework */; };
 		3D92AB50153FDF050030FBE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D92AB4F153FDF050030FBE3 /* CoreGraphics.framework */; };
@@ -39,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D2B38061543BCF7000E5D9B /* MwfMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwfMenuViewController.h; sourceTree = "<group>"; };
+		3D2B38071543BCF7000E5D9B /* MwfMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwfMenuViewController.m; sourceTree = "<group>"; };
+		3D2B38081543BCF7000E5D9B /* MwfMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MwfMenuViewController.xib; sourceTree = "<group>"; };
 		3D92AB47153FDF050030FBE3 /* MwfSwitchViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MwfSwitchViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D92AB4B153FDF050030FBE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3D92AB4D153FDF050030FBE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -142,6 +147,9 @@
 				3D92ABA6154054900030FBE3 /* MwfDemoSecondViewController.h */,
 				3D92ABA7154054900030FBE3 /* MwfDemoSecondViewController.m */,
 				3D92ABA8154054900030FBE3 /* MwfDemoSecondViewController.xib */,
+				3D2B38061543BCF7000E5D9B /* MwfMenuViewController.h */,
+				3D2B38071543BCF7000E5D9B /* MwfMenuViewController.m */,
+				3D2B38081543BCF7000E5D9B /* MwfMenuViewController.xib */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 				3D92ABA5154053110030FBE3 /* MwfDemoFirstViewController.xib in Resources */,
 				3D92ABAA154054910030FBE3 /* MwfDemoSecondViewController.xib in Resources */,
 				3D92ABAC1540576C0030FBE3 /* README.md in Resources */,
+				3D2B380A1543BCF7000E5D9B /* MwfMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +325,7 @@
 				3D92AB8B153FE98F0030FBE3 /* MwfSwitchViewController.m in Sources */,
 				3D92ABA4154053110030FBE3 /* MwfDemoFirstViewController.m in Sources */,
 				3D92ABA9154054910030FBE3 /* MwfDemoSecondViewController.m in Sources */,
+				3D2B38091543BCF7000E5D9B /* MwfMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

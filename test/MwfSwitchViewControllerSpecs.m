@@ -1,33 +1,36 @@
 #import "SpecHelper.h"
 #import "MwfSwitchViewController.h"
+#import "MwfMenuViewController.h"
 
 SpecBegin(MwfSwitchViewController)
 
 __block MwfSwitchViewController * controller = nil;
 __block UIViewController * contentController1 = nil;
 __block UIViewController * contentController2 = nil;
+__block UIViewController * menuViewController = nil;
 __block id mockController = nil;
 __block id mockContentController1, mockContentController2 = nil;
 __block id mockDelegate = nil;
+__block id mockMenuViewController = nil;
 
 beforeAll(^{
 
   controller = (MwfSwitchViewController *) [UIApplication sharedApplication].keyWindow.rootViewController;
-  // controller = [[MwfSwitchViewController alloc] initWithNibName:nil bundle:nil];
-
-  mockController = [OCMockObject partialMockForObject:controller];
-  mockDelegate = [OCMockObject mockForProtocol:@protocol(MwfSwitchViewControllerDelegate)];
-  controller.delegate = mockDelegate;
-
-  
   contentController1 = [[UIViewController alloc] initWithNibName:nil bundle:nil];
   contentController1.view.backgroundColor = [UIColor redColor];
   contentController2 = [[UIViewController alloc] initWithNibName:nil bundle:nil];
   contentController2.view.backgroundColor = [UIColor yellowColor];
+  menuViewController = [[MwfMenuViewController alloc] initWithNibName:nil bundle:nil];
   
+});
+
+beforeEach(^{
+  mockController = [OCMockObject partialMockForObject:controller];
+  mockDelegate = [OCMockObject niceMockForProtocol:@protocol(MwfSwitchViewControllerDelegate)];
+  controller.delegate = mockDelegate;
   mockContentController1 = [OCMockObject partialMockForObject:contentController1];
   mockContentController2 = [OCMockObject partialMockForObject:contentController2];
-  
+  mockMenuViewController = [OCMockObject partialMockForObject:menuViewController];
 });
 
 it(@"tests init and bindings", ^{ 
@@ -41,6 +44,7 @@ it(@"tests init and bindings", ^{
   expect(controller.toolbar).Not.toBeNil();
   expect(controller.contentView).Not.toBeNil();
   expect(controller.overlayHidden).toEqual(YES);
+  expect(controller.menuHidden).toEqual(YES);
   
 });
 /*
@@ -63,6 +67,15 @@ it(@"tests view reloading", ^{
 });
 */
 context(@"switching view controllers", ^{
+
+  beforeEach(^{
+    mockController = [OCMockObject partialMockForObject:controller];
+    mockDelegate = [OCMockObject niceMockForProtocol:@protocol(MwfSwitchViewControllerDelegate)];
+    controller.delegate = mockDelegate;
+    mockContentController1 = [OCMockObject partialMockForObject:contentController1];
+    mockContentController2 = [OCMockObject partialMockForObject:contentController2];
+    mockMenuViewController = [OCMockObject partialMockForObject:menuViewController];
+  });
 
   it(@"tests assigning controllers", ^{
 
@@ -144,6 +157,112 @@ context(@"switching view controllers", ^{
     expect(controller.overlayHidden).toEqual(NO);
     
   });
+});
+
+context(@"menu", ^{
+  
+  beforeEach(^{
+    mockController = [OCMockObject partialMockForObject:controller];
+    mockDelegate = [OCMockObject niceMockForProtocol:@protocol(MwfSwitchViewControllerDelegate)];
+    controller.delegate = mockDelegate;
+    mockContentController1 = [OCMockObject partialMockForObject:contentController1];
+    mockContentController2 = [OCMockObject partialMockForObject:contentController2];
+    mockMenuViewController = [OCMockObject partialMockForObject:menuViewController];
+  });
+
+  it(@"tests scenario with no menu view controller assigned.", ^{
+    
+    [[mockDelegate reject] switchViewController:controller willShowMenuViewController:[OCMArg any]];
+    [[mockDelegate reject] switchViewController:controller heightForMenuViewController:[OCMArg any]];
+    [[mockDelegate reject] switchViewController:controller didShowMenuViewController:[OCMArg any]];
+    [controller setMenuHidden:NO animated:NO];
+    
+    [[mockDelegate reject] switchViewController:controller willHideMenuViewController:[OCMArg any]];
+    [[mockDelegate reject] switchViewController:controller didHideMenuViewController:[OCMArg any]];
+    [controller setMenuHidden:YES animated:NO];
+
+    [mockDelegate verify];
+    
+  });
+  
+  it(@"tests scenario with menu view controller assigned.", ^{
+    
+    controller.menuViewController = menuViewController;
+    expect(controller.menuViewController).Not.toBeNil();
+    expect(menuViewController.parentViewController).toEqual(controller);
+
+    [[mockDelegate expect] switchViewController:controller willShowMenuViewController:menuViewController];
+    [[mockDelegate expect] switchViewController:controller heightForMenuViewController:menuViewController];
+    [[mockDelegate expect] switchViewController:controller didShowMenuViewController:menuViewController];
+    [[mockMenuViewController expect] viewWillAppear:NO];
+    [[mockMenuViewController expect] viewDidAppear:NO];
+    [controller setMenuHidden:NO animated:NO];
+    expect(controller.menuHidden).toEqual(NO);
+    expect(controller.overlayHidden).toEqual(NO);
+    
+    // when menuViewController is showing, cannot change the value of menuViewController
+    NSException * e = nil;
+    @try {
+      UIViewController * newMenuViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+      controller.menuViewController = newMenuViewController;
+    }
+    @catch (NSException * excp) {
+      e = excp;
+    }
+    expect(e).Not.toBeNil();
+    
+    e = nil;
+    @try {
+      controller.menuViewController = nil;
+    }
+    @catch (NSException * excp) {
+      e = excp;
+    }
+    expect(e).Not.toBeNil();
+    
+    
+    // already visible, nothing should happen
+    [[mockDelegate reject] switchViewController:controller willShowMenuViewController:menuViewController];
+    [[mockDelegate reject] switchViewController:controller heightForMenuViewController:menuViewController];
+    [[mockDelegate reject] switchViewController:controller didShowMenuViewController:menuViewController];
+    [[mockMenuViewController reject] viewWillAppear:NO];
+    [[mockMenuViewController reject] viewDidAppear:NO];
+    [controller setMenuHidden:NO animated:NO];
+    
+    [[mockDelegate expect] switchViewController:controller willHideMenuViewController:menuViewController];
+    [[mockDelegate expect] switchViewController:controller didHideMenuViewController:menuViewController];
+    [[mockMenuViewController expect] viewWillDisappear:NO];
+    [[mockMenuViewController expect] viewDidDisappear:NO];
+    [controller setMenuHidden:YES animated:NO];
+    expect(controller.menuHidden).toEqual(YES);
+    expect(controller.overlayHidden).toEqual(YES);
+    
+    // already hidden, nothing should happen
+    [[mockDelegate reject] switchViewController:controller willHideMenuViewController:menuViewController];
+    [[mockDelegate reject] switchViewController:controller didHideMenuViewController:menuViewController];
+    [[mockMenuViewController reject] viewWillDisappear:NO];
+    [[mockMenuViewController reject] viewDidDisappear:NO];
+    [controller setMenuHidden:YES animated:NO];
+
+    [mockMenuViewController verify];
+    [mockDelegate verify];
+    
+  });
+  
+  it(@"Showing menu again on second/subsequent invocation", ^{
+  
+    // show it again, make sure the same sets of methods are invoked
+    [[mockDelegate expect] switchViewController:controller willShowMenuViewController:menuViewController];
+    [[mockDelegate expect] switchViewController:controller heightForMenuViewController:menuViewController];
+    [[mockDelegate expect] switchViewController:controller didShowMenuViewController:menuViewController];
+    [[mockMenuViewController expect] viewWillAppear:NO];
+    [[mockMenuViewController expect] viewDidAppear:NO];
+    [controller setMenuHidden:NO animated:NO];
+    expect(controller.menuHidden).toEqual(NO);
+    expect(controller.overlayHidden).toEqual(NO);
+    
+  });
+  
 });
 
 SpecEnd

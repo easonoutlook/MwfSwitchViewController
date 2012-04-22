@@ -6,6 +6,7 @@ A simple container view controller that is capable to host multiple view control
 * Dead simple to use
 * Toolbar support
 * Overlay support
+* Menu support (automatic overlay show/hide)
 
 ## How To Use
 
@@ -40,6 +41,21 @@ A simple container view controller that is capable to host multiple view control
   ```objective-c
   [switchController setOverlayHidden:showOrHide animated:withOrWithoutAnimation];
   ```
+  
+* Setting menu view controller
+
+  ```objective-c
+  MyAwesomeMenuViewController * menuCtl = ...; // creating the menu view controller
+  switchViewController.menuViewController = menuCtl;
+  ```
+
+* Show/Hide menu
+  
+  ```objective-c
+  [switchViewController setMenuHidden:toHideOrToShow animated:withOrWithoutAnimation];
+  ```
+  
+  Note: delegate can implement menu callback methods (will/didShowMenuViewController, heightForMenuViewController, will/didHideMenuViewController).
   
 ## Licensing
 
